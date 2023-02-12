@@ -18,6 +18,7 @@ public class Tester {
     }
 
     public void run() throws IOException {
+        var stopWatch = new StopWatch();
         for (Solver solver : solvers) {
             System.out.printf("=======================START - %s==================================\n", solver.getQuizName());
             String folder = solver.getFolderName();
@@ -35,10 +36,12 @@ public class Tester {
                 var inputData = Files.readAllLines(inputFileName);
                 var outputData = Files.readString(outputFileName).trim();
 
+                stopWatch.start();
                 var result = solver.solve(inputData);
+                stopWatch.stop();
 
                 if (outputData.equals(result)) {
-                    System.out.printf("Iteration.%s - Success\n", iteration);
+                    System.out.printf("Iteration.%s - Success.Time - %s\n", iteration, stopWatch.getElapsedTime());
                 } else {
                     System.out.printf("Iteration.%s - Failed. Expected: %s, Actual: %s\n",
                             iteration, outputData, result);
