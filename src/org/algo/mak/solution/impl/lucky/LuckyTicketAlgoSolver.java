@@ -1,4 +1,4 @@
-package org.algo.mak.solution.impl;
+package org.algo.mak.solution.impl.lucky;
 
 import org.algo.mak.solution.Solver;
 
