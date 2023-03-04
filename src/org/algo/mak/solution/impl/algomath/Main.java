@@ -1,5 +1,6 @@
+package org.algo.mak.solution.impl.algomath;
+
 import org.algo.mak.solution.Solver;
-import org.algo.mak.solution.impl.algomath.*;
 import org.algo.mak.test.Tester;
 
 import java.io.IOException;
@@ -10,9 +11,6 @@ public class Main {
         String root = "";
         List<Solver> solvers =
                 List.of(
-//                        new StringLengthSolver("0.String"),
-//                        new LuckyTicketRecursiveSolver("1.Tickets"),
-//                        new LuckyTicketAlgoSolver("1.Tickets")
                         new AlgoMath010Solver("3.Power"),
                         new AlgoMath020Solver("4.Fibo"),
                         new AlgoMath021Solver("4.Fibo"),
