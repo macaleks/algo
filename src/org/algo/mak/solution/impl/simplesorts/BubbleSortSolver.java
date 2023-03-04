@@ -1,4 +1,4 @@
-package org.algo.mak.solution.impl.heapsort;
+package org.algo.mak.solution.impl.simplesorts;
 
 import org.algo.mak.solution.Solver;
 
@@ -6,11 +6,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class InsertionSortSolver extends Solver {
+public class BubbleSortSolver extends Solver {
 
     private Integer[] array;
-
-    public InsertionSortSolver(String folder) {
+    public BubbleSortSolver(String folder) {
         super(folder);
     }
 
@@ -19,9 +18,10 @@ public class InsertionSortSolver extends Solver {
         int size = Integer.valueOf(list.get(0));
         array = Arrays.stream(list.get(1).split(" ")).map(Integer::valueOf).toArray(Integer[]::new);
 
-        for (int i = 0; i < size - 1; i++) {
-            for (int j = i; j >= 0 && array[j] > array[j + 1]; j--) {
-                swap(j, j + 1);
+        for (int i = size - 1; i >= 0; i--) {
+            for (int j = 0; j < i; j++) {
+                if (array[j] > array[j + 1])
+                    swap(j, j + 1);
             }
         }
 

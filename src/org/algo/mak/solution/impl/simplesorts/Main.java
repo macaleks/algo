@@ -1,4 +1,4 @@
-package org.algo.mak.solution.impl.heapsort;
+package org.algo.mak.solution.impl.simplesorts;
 
 import org.algo.mak.solution.Solver;
 import org.algo.mak.test.Tester;
@@ -11,10 +11,9 @@ public class Main {
         String root = "Sorting";
         List<Solver> solvers =
                 List.of(
-                        new HeapSortSolver("0.random"),
-                        new HeapSortSolver("1.digits"),
-                        new HeapSortSolver("2.sorted"),
-                        new HeapSortSolver("3.revers")
+                        new BubbleSortSolver("0.random"),
+                        new InsertionSortSolver("0.random"),
+                        new ShellSortSolver("0.random")
                 );
 
         Tester tester = new Tester(solvers, root);

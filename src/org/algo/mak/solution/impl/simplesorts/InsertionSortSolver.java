@@ -1,4 +1,4 @@
-package org.algo.mak.solution.impl.heapsort;
+package org.algo.mak.solution.impl.simplesorts;
 
 import org.algo.mak.solution.Solver;
 
@@ -6,11 +6,11 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ShellSortSolver extends Solver {
+public class InsertionSortSolver extends Solver {
 
     private Integer[] array;
 
-    public ShellSortSolver(String folder) {
+    public InsertionSortSolver(String folder) {
         super(folder);
     }
 
@@ -19,10 +19,11 @@ public class ShellSortSolver extends Solver {
         int size = Integer.valueOf(list.get(0));
         array = Arrays.stream(list.get(1).split(" ")).map(Integer::valueOf).toArray(Integer[]::new);
 
-        for (int gap = size / 2; gap > 0; gap /= 2)
-            for (int i = gap; i < size ; i++)
-                for (int j = i; j >= gap && array[j - gap] > array[j]; j -= gap)
-                    swap(j - gap, j);
+        for (int i = 0; i < size - 1; i++) {
+            for (int j = i; j >= 0 && array[j] > array[j + 1]; j--) {
+                swap(j, j + 1);
+            }
+        }
 
         return Arrays.stream(array).map(String::valueOf).collect(Collectors.joining(" "));
     }
