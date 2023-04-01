@@ -41,7 +41,7 @@ public class TrieMap<T> implements Map<T> {
         if (node != null) {
             value = node.value;
             node.end = false;
-//            node.value = null;
+            node.value = null;
             //cleanup
             int index = key.length() - 1;
             while (node != null && node.end == false && node.next == null) {
